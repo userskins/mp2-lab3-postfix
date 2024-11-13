@@ -39,12 +39,12 @@ public:
             else if (ch == ')') {
                 balance--;
                 if (balance < 0) {  // Больше закрывающих скобок
-                    throw std::runtime_error("Unbalanced parentheses: more closing brackets.");
+                    throw runtime_error("Unbalanced parentheses: more closing brackets.");
                 }
             }
         }
         if (balance != 0) {  // Недостающая закрывающая или открывающая скобка
-            throw std::runtime_error("Unbalanced parentheses: unmatched opening bracket.");
+            throw runtime_error("Unbalanced parentheses: unmatched opening bracket.");
         }
     }
 
@@ -74,7 +74,7 @@ public:
     // Устанавливает значение переменной
     void setVariableValue(const string& var, double value) {
         if (isVariableFixed(var)) {
-            throw std::runtime_error("Variable is fixed and cannot be modified.");
+            throw runtime_error("Variable is fixed and cannot be modified.");
         }
         variableValues[var] = value;
     }
@@ -84,7 +84,7 @@ public:
         if (variableValues.find(var) != variableValues.end()) {
             return variableValues.at(var);
         }
-        throw std::runtime_error("Variable not found.");
+        throw runtime_error("Variable not found.");
     }
 
     // Устанавливает переменную как неизменяемую

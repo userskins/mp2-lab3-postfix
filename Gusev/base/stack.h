@@ -19,7 +19,7 @@ public:
     explicit TStack(int initialSize = 1)
         : maxSize(initialSize), topIndex(-1) {  // Инициализация maxSize и topIndex
         if (maxSize < 1 || maxSize > MaxStackSize) {  // Проверка на допустимый размер
-            throw std::out_of_range("Stack size must be between 1 and 100");
+            throw out_of_range("Stack size must be between 1 and 100");
         }
         elements = new T[maxSize];  // Выделение памяти для массива элементов
     }
@@ -53,7 +53,7 @@ public:
     // Добавление элемента в стек
     void push(const T& item) {
         if (isFull()) {  // Если стек полон, выбрасываем исключение
-            throw std::overflow_error("Stack is full");
+            throw overflow_error("Stack is full");
         }
         elements[++topIndex] = item;  // Увеличиваем индекс и добавляем элемент
     }
@@ -61,7 +61,7 @@ public:
     // Удаление и возврат верхнего элемента стека
     T pop() {
         if (isEmpty()) {  // Если стек пуст, выбрасываем исключение
-            throw std::underflow_error("Stack is empty");
+            throw underflow_error("Stack is empty");
         }
         return elements[topIndex--];  // Возвращаем верхний элемент и уменьшаем индекс
     }
@@ -69,7 +69,7 @@ public:
     // Возвращает верхний элемент стека (независимо от того, изменяется ли стек)
     T& top() {
         if (isEmpty()) {  // Если стек пуст, выбрасываем исключение
-            throw std::underflow_error("Stack is empty");
+            throw underflow_error("Stack is empty");
         }
         return elements[topIndex];  // Возвращаем верхний элемент
     }
@@ -77,7 +77,7 @@ public:
     // Константная версия метода top() для чтения верхнего элемента без изменений
     const T& top() const {
         if (isEmpty()) {  // Если стек пуст, выбрасываем исключение
-            throw std::underflow_error("Stack is empty");
+            throw underflow_error("Stack is empty");
         }
         return elements[topIndex];  // Возвращаем верхний элемент (неизменяемый)
     }

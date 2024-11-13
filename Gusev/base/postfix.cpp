@@ -111,7 +111,7 @@ double TPostfix::evaluate() const {
         }
         else {
             if (operands.currentSize() < 2) {
-                throw std::runtime_error("Error in postfix expression: insufficient operands.");
+                throw runtime_error("Error in postfix expression: insufficient operands.");
             }
             double operand2 = operands.pop();
             double operand1 = operands.pop();
@@ -120,7 +120,7 @@ double TPostfix::evaluate() const {
         }
     }
     if (operands.currentSize() != 1) {
-        throw std::runtime_error("Error in postfix expression: more than one operand left.");
+        throw runtime_error("Error in postfix expression: more than one operand left.");
     }
     return operands.pop();
 }
@@ -133,11 +133,11 @@ double TPostfix::performOperation(double operand1, double operand2, char op) con
     case '*': return operand1 * operand2;
     case '/':
         if (operand2 == 0) {
-            throw std::runtime_error("Division by zero.");
+            throw runtime_error("Division by zero.");
         }
         return operand1 / operand2;
     default:
-        throw std::runtime_error("Unknown operator.");
+        throw runtime_error("Unknown operator.");
     }
 }
 

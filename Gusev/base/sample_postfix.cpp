@@ -5,8 +5,6 @@
 #include "postfix.h"
 #include "stack.h"
 
-using namespace std;
-
 int main() {
     // Вывод информации о программе
     cout << "Это калькулятор строк. Вы можете использовать следующие операции: +, -, *, /" << endl;
